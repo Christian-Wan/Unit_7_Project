@@ -34,7 +34,7 @@ public class Address {
             apartmentNumber = "";
         }
         city = separate[1];
-        state = separate[2].substring(0, separate[2].length() - 7);
+        state = separate[2].substring(0, separate[2].length() - 6);
         zipCode = separate[2].substring(separate[2].length() - 5);
     }
     public String getHouseNumber() {

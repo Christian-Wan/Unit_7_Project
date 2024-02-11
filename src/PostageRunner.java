@@ -31,12 +31,10 @@ public class PostageRunner {
                 System.out.println("Cost: " + PostageCalculator.calculatePostage(zip1, zip2, weight, height, length, width));
             }
             else if (input.equals("2")) {
-                System.out.println("How many packages would you like to simulate? ");
+                System.out.print("How many packages would you like to simulate? ");
                 input = s.nextLine();
                 simulate.packageGenerator(Integer.parseInt(input));
-                for (int i = 0; i < simulate.getPackages().size(); i++) {
-                    System.out.println(simulate.getSimulationInfo());
-                }
+                System.out.println(simulate.getSimulationInfo());
                 System.out.println("-------------------------------------");
                 System.out.println("Total Cost of all packages: " + simulate.generateTotalCost());
                 input = "";

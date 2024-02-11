@@ -36,7 +36,7 @@ public class PackageSimulator {
     public String getSimulationInfo() {
         String result = "Randomly generated packages info:\n";
         for (int i = 0; i < packages.size(); i++) {
-            result += "Package " + i + "-------------------------------------\n";
+            result += "Package " + (i + 1) + "-------------------------------------\n";
             result += "Origin address: " + packages.get(i).getOrigin().toString() + "\n";
             result += "Destination address: " + packages.get(i).getDestination().toString() + "\n";
             result += "Weight: " + packages.get(i).getWeight() + " pounds\n";
