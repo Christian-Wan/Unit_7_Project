@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Address {
 
     private String houseNumber, streetName, apartmentNumber, city, state, zipCode;
@@ -22,7 +24,7 @@ public class Address {
 
     public Address(String address) {
         String[] separate = address.split(", ");
-        String[] first = separate[1].split(" ");
+        String[] first = separate[0].split(" ");
         houseNumber = first[0];
         streetName = first[1] + " " + first[2];
         try {
@@ -33,7 +35,7 @@ public class Address {
         }
         city = separate[1];
         state = separate[2].substring(0, separate[2].length() - 7);
-        zipCode = separate[2].substring(separate[2].length() - 6);
+        zipCode = separate[2].substring(separate[2].length() - 5);
     }
     public String getHouseNumber() {
         return houseNumber;

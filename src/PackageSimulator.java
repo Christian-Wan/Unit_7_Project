@@ -10,8 +10,14 @@ public class PackageSimulator {
     public void packageGenerator(int num) {
         String address = "123 Random Street Apt 3C, City, State ";
         for (int i = 0; i < num; i++) {
-            String zipCode1 = Integer.toString((int) (Math.random() * 89999) + 10000);
-            String zipCode2 = Integer.toString((int) (Math.random() * 89999) + 10000);
+            String zipCode1 = Integer.toString((int) (Math.random() * 99023) + 501);
+            String zipCode2 = Integer.toString((int) (Math.random() * 99023) + 501);
+            while (zipCode1.length() < 5) {
+                zipCode1 = "0" + zipCode1;
+            }
+            while (zipCode2.length() < 5) {
+                zipCode2 = "0" + zipCode2;
+            }
             double length = (Math.random() * 8) + 12;
             double height = (Math.random() * 6) + 12;
             double width = (Math.random() * 6) + 6;
@@ -30,7 +36,7 @@ public class PackageSimulator {
     public String getSimulationInfo() {
         String result = "Randomly generated packages info:\n";
         for (int i = 0; i < packages.size(); i++) {
-            result += "Package " + i + "------------------";
+            result += "Package " + i + "-------------------------------------";
             result += "Origin address: " + packages.get(i).getOrigin().toString() + "\n";
             result += "Destination address: " + packages.get(i).getDestination().toString() + "\n";
             result += "Weight: " + packages.get(i).getWeight() + " pounds\n";
@@ -41,6 +47,11 @@ public class PackageSimulator {
         }
         return result;
     }
+
+    public ArrayList<Package> getPackages() {
+        return packages;
+    }
+
     public void resetSimulation() {
         packages.clear();
     }
