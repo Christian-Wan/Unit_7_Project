@@ -1,7 +1,8 @@
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class PostageRunner {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         PackageSimulator simulate = new PackageSimulator();
         Scanner s = new Scanner(System.in);
         String input  = "";

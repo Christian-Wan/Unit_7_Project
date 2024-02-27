@@ -1,4 +1,7 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class PackageSimulator {
     private ArrayList<Package> packages;
@@ -7,11 +10,11 @@ public class PackageSimulator {
         packages = new ArrayList<Package>();
     }
 
-    public void packageGenerator(int num) {
+    public void packageGenerator(int num) throws FileNotFoundException {
         String address = "123 Random Street Apt 3C, City, State ";
         for (int i = 0; i < num; i++) {
-            String zipCode1 = Integer.toString((int) (Math.random() * 99023) + 501);
-            String zipCode2 = Integer.toString((int) (Math.random() * 99023) + 501);
+            String zipCode1 = randomZipCode();
+            String zipCode2 = randomZipCode();
             while (zipCode1.length() < 5) {
                 zipCode1 = "0" + zipCode1;
             }
@@ -26,6 +29,18 @@ public class PackageSimulator {
         }
     }
 
+    private String randomZipCode() throws FileNotFoundException {
+        File f = new File("src/zip_codes.txt");
+        Scanner s = new Scanner(f);
+
+        int random = (int) (Math.random() * 42735);
+        for (int i = 0; i < random; i++) {
+            s.nextLine();
+        }
+        String result = s.nextLine();
+        s.close();
+        return result;
+    }
     public double generateTotalCost() {
         double total = 0;
         for (Package pack: packages) {
